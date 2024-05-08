@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+          
+          <span> Word: {{ data.en_form }}</span>  <img src="{{ data.image.url }}" alt="image">
+
+          <h3>{{ data.en_form }} - {{ data.uz_form }}</h3>
+          <br>
+          <br>
+          <br>
+
+          Definition-En: <p>{{ data.en_definition | safe }}</p><br><br>
+          Definition-Uz:<p>{{ data.uz_definition | safe }}</p>
+</body>
+</html>
