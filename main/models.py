@@ -12,9 +12,25 @@ class BaseModel(models.Model):
      class Meta:
           abstract = True
 
+
+class Category(BaseModel):
+     title = models.CharField(max_length=255)
+     slug = models.SlugField()
+     image = models.ImageField(upload_to='category_images/')
+
+
+     def __str__(self):
+          return self.title
+
+
+     def save(self, *args, **kwargs):
+          if not self.slug:
+               self.slug=slugify(self.title, allow_unicode=True)
+          return super().save(*args, **kwargs)
      
 
 class Word(BaseModel):
+     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name="category_word", null=True)
      en_form = models.CharField(max_length=50)
      slug = models.SlugField()
      uz_form = models.CharField(max_length=200)

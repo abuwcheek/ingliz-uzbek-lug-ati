@@ -1,14 +1,24 @@
-     <!DOCTYPE html>
-     <html lang="en">
-     <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-     </head>
-     <body>
-          <h1>Welcome</h1>
-          {% for word in wordcha %}
-               <h3><a href="{% url 'detail' word.slug %}">{{ word.en_form }}</a></h3>
-          {% endfor %}
-     </body>
-     </html>
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+  index page
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="about_section layout_padding">
+  <div class="container">
+      {% for word in wordcha %}
+        <ol>
+          <span><a href="{% url 'detail' word.slug %}" class="btn btn-danger">{{ word.en_form }}</a></span>
+        </ol>
+      {% endfor %}
+  </div>
+</section>
+
+
+  
+{% endblock content %}

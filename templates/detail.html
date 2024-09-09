@@ -1,20 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-</head>
-<body>
-          
-          <span> Word: {{ data.en_form }}</span>  <img src="{{ data.image.url }}" alt="image">
+{% extends "base.html" %}
+{% load static %}          
 
-          <h3>{{ data.en_form }} - {{ data.uz_form }}</h3>
+{% block title %}
+     detail page
+{% endblock title %}
+
+
+{% block content %}
+  
+
+<section class="about_section layout_padding">
+
+     <div style="padding: 30px;">
+          <img src="{{ data.image.url }}" alt="image" style="width: 400px; padding: 0 0 40px 70px;">
+          <br>
+          <b style="color: blueviolet; font-size: 40px;"> Word: </b> <span style="color: aqua; font-size: 20px;">{{ data.en_form }}</span>
+
+          <br>
+          <br>
+          <br>
+          <h3 style="color: aquamarine;">{{ data.en_form }} - {{ data.uz_form }}</h3>
           <br>
           <br>
           <br>
 
-          Definition-En: <p>{{ data.en_definition | safe }}</p><br><br>
-          Definition-Uz:<p>{{ data.uz_definition | safe }}</p>
-</body>
-</html>
+          <hr>
+          <b style="font-size: 40px; color: blueviolet;">Definition-En:</b> <p style="color: black;">{{ data.en_definition | safe }}</p><br><br>
+          <b style="font-size: 40px; color: blueviolet;">Definition-Uz:</b><p>{{ data.uz_definition | safe }}</p>
+     </div>
+
+</section>
+
+
+
+{% endblock content %}
