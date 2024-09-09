@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.views import View
-from .models import Category, Word
+from .models import Category, Word, About, Contact
 
 
 class CategoryView(View):
@@ -14,7 +15,14 @@ class CategoryView(View):
 
 
 class CategoryDetailView(View):
-     pass
+     def get(self, request, slug):
+          categ_detail = get_object_or_404(Category, slug=slug)
+          categ_word = categ_detail.category_word.all()
+
+          context = {
+               'categ_word': categ_word,
+          }
+          return render(request, 'category_detail.html', context)
 
 
 
@@ -35,3 +43,30 @@ class DetailView(View):
                'data': data,
           }
           return render(request, 'detail.html', context)
+
+
+
+class AboutView(View):
+     def get(self, request):
+          about_view = About.objects.all()
+          context = {
+               'about_view': about_view,
+          }
+          return render(request, 'about.html', context)
+
+
+class ContactView(View):
+     def get(self, request):
+          return render(request, 'contact.html')
+
+     def post(self, request):
+          contact_data = request.POST
+          contact = Contact()
+          contact.name = data.get('name')
+          contact.number = data.get('number')
+          contact.email = data.get('email')
+          contact.name = data.get('message')
+          contact.save()
+
+          messages.success(request, 'Sizning malumotlaringiz yuborildi')
+          return render(request, 'contact.html')

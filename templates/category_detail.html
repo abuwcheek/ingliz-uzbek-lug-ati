@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}          
+
+{% block title %}
+     category word page
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="about_section layout_padding">
+  <a href="{% url 'categ' %}" class="btn btn-primary" style="margin: 0">Back to ctg list</a>
+     <div class="container">
+         {% for ctgword in categ_word %}
+           <ol>
+             <span><a href="{% url 'detail' ctgword.slug %}" class="btn btn-danger">{{ ctgword.en_form }}</a></span>
+           </ol>
+         {% endfor %}
+     </div>
+</section>
+
+{% endblock content %}

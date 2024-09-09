@@ -15,21 +15,31 @@
           <img src="{{ data.image.url }}" alt="image" style="width: 400px; padding: 0 0 40px 70px;">
           <br>
           <b style="color: blueviolet; font-size: 40px;"> Word: </b> <span style="color: aqua; font-size: 20px;">{{ data.en_form }}</span>
-
           <br>
           <br>
           <br>
+          <br>
+          <br>
+          <b style="color: blueviolet; font-size: 40px;">Translate: </b> <span style="color: aqua; font-size: 20px;"></span>
           <h3 style="color: aquamarine;">{{ data.en_form }} - {{ data.uz_form }}</h3>
+          <br>
+          <br>
           <br>
           <br>
           <br>
 
           <hr>
-          <b style="font-size: 40px; color: blueviolet;">Definition-En:</b> <p style="color: black;">{{ data.en_definition | safe }}</p><br><br>
+          <b style="font-size: 40px; color: blueviolet;">Definition-En:</b> <p style="color: black;">{{ data.en_definition | safe }}</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
           <b style="font-size: 40px; color: blueviolet;">Definition-Uz:</b><p>{{ data.uz_definition | safe }}</p>
      </div>
 
 </section>
+
 
 
 

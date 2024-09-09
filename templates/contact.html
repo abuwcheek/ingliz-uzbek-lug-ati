@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}          
+
+{% block title %}
+     contact page
+{% endblock title %}
+
+
+{% block content %}  
+
+
+  <!-- book section -->
+  <section class="book_section layout_padding">
+     <div class="container">
+          <div class="heading_container">
+               <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    Book A Table
+               </h2>
+          </div>
+          <div class="row">
+               <div class="col-md-6">
+                    <div class="form_container">
+                         <form action="">
+                              <div>
+                                   <input type="text" class="form-control" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name"  />
+                              </div>
+                              <div>
+                                   <input type="text" class="form-control" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone"/>
+                              </div>
+                              <div>
+                                   <input type="email" class="form-control" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                              </div>
+                              <div>
+                                   <textarea type="text" class="form-control" rows="5" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                              </div>
+                              <div>
+                                   <input type="date" class="form-control">
+                              </div>
+                              <div class="btn_box">
+                                   <button type="submit">
+                                        Submit
+                                   </button>
+                              </div>
+                         </form>
+                    </div>
+               </div>
+               <div class="col-md-6">
+                    <div class="map_container ">
+                         <div id="googleMap">
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
+   <!-- end book section -->
+
+
+{% endblock content %}  

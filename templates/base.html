@@ -60,7 +60,7 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="{% url 'contacturl' %}">Contact</a>
               </li>
               <li>
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -118,25 +118,25 @@
          <div class="col-md-4 footer-col">
            <div class="footer_detail">
              <b class="footer-logo">
-               <a href="">
+               <a href="{% url 'abouturl' %}">
                 Feane
                </a>
              </b>
              <div class="footer_social">
-               <a href="">
+               <a href="{{ about.facebook }}">
                  <i class="fa fa-facebook" aria-hidden="true"></i>
                </a>
-               <a href="">
+               <a href="{{ about.twitter }}">
                  <i class="fa fa-twitter" aria-hidden="true"></i>
                </a>
-               <a href="">
+               <a href="{{ about.linkedin }}">
                  <i class="fa fa-linkedin" aria-hidden="true"></i>
                </a>
-               <a href="">
+               <a href="{{ about.instagram }}">
                  <i class="fa fa-instagram" aria-hidden="true"></i>
                </a>
-               <a href="">
-                 <i class="fa fa-pinterest" aria-hidden="true"></i>
+               <a href="{{ about.youtube }}">
+                 <i class="fa fa-youtube" aria-hidden="true"></i>
                </a>
              </div>
            </div>

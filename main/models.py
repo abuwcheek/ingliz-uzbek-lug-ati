@@ -46,3 +46,32 @@ class Word(BaseModel):
           if not self.slug:
                self.slug=slugify(self.en_form, allow_unicode=True)
           return super().save(*args, **kwargs)
+
+
+
+class About(BaseModel):
+     locatin = models.CharField(max_length=50)
+     phone = models.CharField(max_length=15)
+     email = models.EmailField()
+
+     instagram = models.CharField(max_length=100)
+     facebook = models.CharField(max_length=100)
+     youtube = models.CharField(max_length=100)
+     twitter = models.CharField(max_length=100)
+     linkedin = models.CharField(max_length=100)
+
+
+     def __str__(self):
+          return "About"
+
+
+
+class Contact(BaseModel):
+     name = models.CharField(max_length=100)
+     number = models.CharField(max_length=15)
+     email = models.EmailField()
+     message = models.CharField(max_length=100)
+
+     
+     def __str__(self):
+          return "Contact"

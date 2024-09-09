@@ -7,7 +7,6 @@
 
 
 {% block content %}
-  
 
 
 <!-- start food section -->
@@ -35,7 +34,9 @@
                               </div>
                               <div class="detail-box">
                                    <h5>
-                                        {{ ctg.title }}
+                                        <a href="{% url 'ctgdetail' ctg.slug %}">
+                                             {{ ctg.title }}
+                                        </a>
                                    </h5>
                                    <div class="options">
                                         <g>
@@ -103,5 +104,6 @@
 </section>
 
 <!-- end food section -->
+ 
 
 {% endblock content %}

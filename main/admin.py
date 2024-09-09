@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Word
+from .models import Category, Word, About, Contact
 
 
 @admin.register(Category)
@@ -23,3 +23,19 @@ class WordAdmin(admin.ModelAdmin):
      readonly_fields = ('id',)
      list_editable = ('is_active',)
      list_per_page = 25
+
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+     list_display = ('created_at', 'is_active')
+     list_display_links = ('created_at', 'is_active')
+
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+     list_display = ('name', 'email', 'number', 'is_active', 'created_at')
+     list_display_links = ('name', 'email')
+     search_fields = ('name', 'email')
+     list_editable = ('is_active',)
