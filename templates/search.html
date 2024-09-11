@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}          
+
+{% block title %}
+     search page
+{% endblock title %}
+
+
+{% block content %}  
+
+<section class="about_section layout_padding">
+     <a href="{% url 'categ' %}" class="btn btn-primary" style="margin: 0">Back to ctg list</a>
+          <div class="container">
+               {% for search in search_word %}
+                    <ol>
+                         <span><a href="{% url 'detail' search.slug %}" class="btn btn-danger">{{ search.en_form }}</a></span>
+                    </ol>
+               {% endfor %}
+          </div>
+</section>
+
+{% endblock content %}  

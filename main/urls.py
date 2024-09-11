@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CategoryView, CategoryDetailView, WordView, DetailView, AboutView, ContactView
+from .views import CategoryView, CategoryDetailView, WordView, DetailView, AboutView, ContactView, SearchView
 
 
 urlpatterns=[
@@ -9,4 +9,5 @@ urlpatterns=[
      path('word/<str:slug>', DetailView.as_view(), name="detail"), 
      path('about/', AboutView.as_view(), name="abouturl"),     
      path('contact/', ContactView.as_view(), name="contacturl"),     
+     path('search/', SearchView.as_view(), name="search"),     
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.db.models import Q
 from django.views import View
 from .models import Category, Word, About, Contact
 
@@ -62,11 +63,31 @@ class ContactView(View):
      def post(self, request):
           contact_data = request.POST
           contact = Contact()
-          contact.name = data.get('name')
-          contact.number = data.get('number')
-          contact.email = data.get('email')
-          contact.name = data.get('message')
+
+          contact.name = contact_data.get('name')
+          contact.number = contact_data.get('number')
+          contact.email = contact_data.get('email')
+          contact.message = contact_data.get('message')
+
           contact.save()
 
           messages.success(request, 'Sizning malumotlaringiz yuborildi')
           return render(request, 'contact.html')
+
+
+
+class SearchView(View):
+     def get(self, request):
+          query = request.GET.get('search')
+          if not query:
+               return redirect('index')
+          search_word = Word.objects.all().filter(Q(en_form__icontains = query) | Q(uz_form__icontains = query) | Q(en_definition__icontains = query) | Q(uz_definition__icontains = query))
+          if not search_word:
+               messages.warning(request, "So'rov bo'yicha ma'lumot topilmadi")
+               return redirect('index')
+          
+          context = {
+               'search_word': search_word,
+          }
+          messages.info(request, "Siz izlagan ma'lumotlar")
+          return render(request, 'search.html', context)

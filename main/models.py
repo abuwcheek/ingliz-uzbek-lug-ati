@@ -60,6 +60,9 @@ class About(BaseModel):
      twitter = models.CharField(max_length=100)
      linkedin = models.CharField(max_length=100)
 
+     image = models.ImageField(upload_to="about_images/")
+     body = models.TextField()
+
 
      def __str__(self):
           return "About"
